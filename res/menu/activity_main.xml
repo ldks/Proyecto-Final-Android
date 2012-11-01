@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/principalMenuItem" android:title="Principal"></item>
+    <item android:id="@+id/acercadeMenuItem"
+        android:title="Acerca de ...">
+        <menu>
+            <item android:id="@+id/empresaMenuItem" android:title="Empresa" />
+            <item android:id="@+id/aplicacionMenuItem" android:title="Aplicación" />
+            <item android:id="@+id/nosotrosMenuItem" android:title="Nosotros"/>  
+        </menu>
+    </item>
+    <item android:id="@+id/salirMenuItem" android:title="Salir"></item>
+    
+</menu>

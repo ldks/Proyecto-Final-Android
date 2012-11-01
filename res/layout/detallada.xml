@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/scroll" android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+    <!-- Row 1 with single column -->
+    <TableRow
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:adjustViewBounds="true"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:src="@drawable/lap1" />
+    </TableRow> 
+  	<TableRow>
+	<TextView
+            android:id="@+id/TextView04"
+            android:text="@string/texto3"
+            android:textSize="15dp" />
+     </TableRow>
+     <TableRow>
+     <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Agregar al Carrito"
+            android:textSize="10dp" />
+
+    </TableRow>   
+
+</TableLayout>
+</ScrollView>

@@ -1,0 +1,39 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+    <!-- Row 1 with single column --> 
+ 
+    <!-- Row 2 with 3 columns -->
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/objetivoTitleTextView"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="20dip"
+            android:text="@string/acerca_de_aplicacion_title"
+            android:textSize="20dp" />
+ 
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/objetivoBodyTextView"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="20dip"
+            android:text="@string/acerca_de_aplicacion_body" />
+ 
+    </TableRow>
+    
+ 
+</TableLayout>

@@ -1,0 +1,28 @@
+<resources>
+
+    <string name="app_name">Examen1</string>
+    <string name="hello_world">Pantalla \nprincipal</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Examen1</string>
+    <string name="menu_1">Info</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="mas_opciones">Mas Opciones</string>
+    <string name="crear_nuevo">Crear Nuevo</string>
+    <string name="salir">Salir</string>
+    <string name="slogan">Finding ways to achieve goals</string>
+    <string name="desc">Fast Curve, es una compañia que se dedica a proponer soluciones moviles a 
+        los distintos tipos de problematicas que una empresa presenta sin importar su giro</string>
+    <string name="creditos">Creditos</string>
+    <string name="nombre_1">Axel Efrain Tamez</string>
+    <string name="bios1">Actualmente estudio la carrera ITC. He trabajado en varios proyectos
+        a lo largo de mi tiempo estudiantil. He trabajado por 3 años y medio en el área de TI</string>
+    <string name="nombre_2">Isaac Larraguibel Bours</string>
+    <string name="bios2">Actualmente soy estudiante de ITC. He trabajado en proyectos de desarrllo de ERPs y desarrollo web.</string>
+    <string name="acerca_de_aplicacion_title">Objetivo de esta aplicación</string>
+    <string name="acerca_de_aplicacion_body">Consultar la base de datos de Granjas Baseran y mostrar la información más importante para el usuario de tal manera que se pueda consultar donde sea, como en el transcurso de una junta. La aplicación puede guardar la información actual para consultarla en el futuro o compartirla con alguien.</string>
+    <string name="logoContDesc">Logo</string>
+    <string name="texto1">Marca: Hp   Precio: 1,800</string>
+    <string name="texto2">Marca: Compaq  Precio: 1,235</string>
+    <string name="texto3">Marca: Hp. Precio: 2,500 Ram: 2GB HD: 200GB Pantalla:14&quot;</string>
+
+</resources>
