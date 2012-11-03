@@ -1,9 +1,8 @@
 <resources>
 
-    <string name="app_name">Examen1</string>
-    <string name="hello_world">Pantalla \nprincipal</string>
+    <string name="app_name">Compuplazos</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Examen1</string>
+    <string name="title_activity_main">Compuplazos</string>
     <string name="menu_1">Info</string>
     <string name="ayuda">Ayuda</string>
     <string name="mas_opciones">Mas Opciones</string>
