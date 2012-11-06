@@ -59,7 +59,11 @@ public class MainActivity extends Activity {
 	 * lugar de la de default.
 	 */
 	private static int currentView;
+	
+	// lista de computadoras
 	private ArrayList<Computadora> lista = new ArrayList<Computadora>();
+	
+	// dialogo mostrado al actualizar la lista de computadoras
 	private ProgressDialog progressDialog;
 
 	// Dialogo para confirmar cerrar la aplicación
@@ -87,7 +91,13 @@ public class MainActivity extends Activity {
 		mPlayer.start();
 		mPlayer.stop();
 		
+		actualizarLista();
+	}
+
+	private void actualizarLista() {
+		progressDialog.show();
 		task.execute();
+		
 	}
 
 	@Override
@@ -181,11 +191,14 @@ public class MainActivity extends Activity {
 		builder.show();
 	}
 	
+	/**
+	 * Tarea que se ejecuta en el fondo y actualiza la lista de computadoras
+	 */
 	public class ActualizaLista extends AsyncTask<Void, String, String> {
 		final String URL = "http://200.52.163.45/android_connector.aspx/";
 
 		/**
-		 * background
+		 * proceso que hace la llamada a la base de datos
 		 */
 		@Override
 		protected String doInBackground(Void... params) {
@@ -212,10 +225,11 @@ public class MainActivity extends Activity {
 		}
 
 		/**
-		 * on getting result
+		 * actualiza la lista de computadoras con los resultados
 		 */
 		@Override
 		protected void onPostExecute(String result) {
+			progressDialog.dismiss();
 			JSONArray computadoras = null;
 			try {
 				computadoras = new JSONArray(result);
