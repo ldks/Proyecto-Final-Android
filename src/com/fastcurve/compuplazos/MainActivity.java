@@ -42,6 +42,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -278,6 +279,7 @@ public class MainActivity extends ListActivity {
 					JSONObject json = computadoras.getJSONObject(i);
 					computadora.setId(json.getInt("Id"));
 					computadora.setClave(json.getString("Clave"));
+					computadora.setImagen(jsonarrayToImage(json.getJSONArray("Imagen")));
 					computadora.setCategoria(json.getString("Categoria"));
 					computadora.setMarca(json.getString("Familia"));
 					computadora.setModelo(json.getString("Sub familia"));
@@ -290,6 +292,21 @@ public class MainActivity extends ListActivity {
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
 			
+		}
+		
+		/**
+		 * Convierte un arreglo JSON de ints a una imagen
+		 * @param array arreglo de bytes que representa la imagen
+		 * @return la imagen que resulta del arreglo, null si array es null
+		 * @throws JSONException
+		 */
+		private Bitmap jsonarrayToImage(JSONArray array) throws JSONException {
+			if (array == null) return null;
+			byte[] bitmapdata = new byte[array.length()];
+			for (int i=0; i<bitmapdata.length; i++) {
+				bitmapdata[i] = (byte) array.getInt(i);
+			}
+			return BitmapFactory.decodeByteArray(bitmapdata , 0, bitmapdata.length);
 		}
 		
 	}
