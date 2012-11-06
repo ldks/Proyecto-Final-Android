@@ -23,15 +23,17 @@
   	<TableRow>
 	<TextView
             android:id="@+id/TextView04"
-            android:text="@string/texto3"
             android:textSize="15dp" />
      </TableRow>
      <TableRow>
+
      <Button
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="Agregar al Carrito"
-            android:textSize="10dp" />
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:minHeight="20dip"
+         android:minWidth="20dip"
+         android:text="Agregar al Carrito"
+         android:textSize="10dp" />
 
     </TableRow>   
 
