@@ -1,10 +1,6 @@
 package com.fastcurve.compuplazos;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -13,6 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -31,8 +28,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.fastcurve.compuplazos.R;
-
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,16 +35,25 @@ import android.os.Handler;
 import android.os.Message;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 	
 	private final ActualizaLista task = new ActualizaLista();
 	/*
@@ -68,11 +72,25 @@ public class MainActivity extends Activity {
 	// Este objeto sirve para poder abrir un archivo de audio y poder
 	// manipularlo
 	MediaPlayer mPlayer;
+	
+	/*
+	 * Metodo para probar autogeneración de tabla
+	 */
+	static final int cantidad=5;
+	static final Computadora lista2[]=new Computadora[cantidad];
+	public void creaLista(){
+		for(int i=0; i<cantidad;i++){
+			lista2[i]=new Computadora();
+		}
+	}
+	/*
+	 * fin de prueba
+	 */
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 
 		// inicializamos el dialogo que se muestra al actualizar
 		progressDialog = new ProgressDialog(this);
@@ -87,7 +105,11 @@ public class MainActivity extends Activity {
 		mPlayer.start();
 		mPlayer.stop();
 		
+		creaLista();
+		 setListAdapter(new Adaptador(this,	lista2));
+	    
 		task.execute();
+		
 	}
 
 	@Override
@@ -140,10 +162,26 @@ public class MainActivity extends Activity {
 	 * 
 	 * @see android.app.Activity#onConfigurationChanged(android.content.res.Configuration)
 	 */
-	public void onConfigurationChanged(Configuration newConfig) {
+	/*public void onConfigurationChanged(Configuration newConfig) {
+	 *
+	 *
 		super.onConfigurationChanged(newConfig);
 		// cambia el view a lo que estaba antes de cambiar la orientaciÃ³n
 		setContentView(currentView);
+	}
+	*/
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+    	//get selected items
+    	int pos= (int)getListAdapter().getItemId(position);
+		String selectedValue = lista2[(int)getListAdapter().getItemId(position)].getMarca();
+		Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
+		//carga la activity de detallada
+		Intent nextActivity = new Intent(this, Detalle.class);
+		nextActivity.putExtra("Marca", lista2[pos].getMarca());
+		startActivity(nextActivity);
+ 
 	}
 
 	/**
@@ -237,7 +275,10 @@ public class MainActivity extends Activity {
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
 			
-			
 		}
+		
 	}
+	public void ClickHandler(View v){
+    	System.out.println("Lol");
+    }
 }

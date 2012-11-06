@@ -15,12 +15,16 @@ public class Computadora {
 	private double precio;
 	
 	public Computadora(){
-		setId(-1);
-		setClave("");
+		//setId(-1);
+		//setClave("");
+		id=1;
+		clave="nula";
 		imagen=null;
-		setCategoria("");
-		marca="";
-		setModelo("");
+		//setCategoria("");
+		categoria="N/A";
+		marca="Generica";
+		//setModelo("");
+		modelo="N/A";
 		detalles="";
 		precio=0;
 	}
