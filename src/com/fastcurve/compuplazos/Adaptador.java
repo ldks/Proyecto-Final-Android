@@ -1,5 +1,8 @@
 package com.fastcurve.compuplazos;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +13,13 @@ import android.widget.TextView;
  
 public class Adaptador extends ArrayAdapter<Computadora> {
 	private final Context context;
-	private final Computadora[] values;
+	private final ArrayList<Computadora> values;
+	DecimalFormat df = new DecimalFormat("#.##");
  
-	public Adaptador(Context context, Computadora[] values) {
-		super(context, R.layout.activity_main, values);
+	public Adaptador(Context context, ArrayList<Computadora> lista) {
+		super(context, R.layout.activity_main, lista);
 		this.context = context;
-		this.values = values;
+		this.values = lista;
 	}
  
 	@Override
@@ -24,15 +28,15 @@ public class Adaptador extends ArrayAdapter<Computadora> {
 			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
  
 		View rowView = inflater.inflate(R.layout.activity_main, parent, false);
-		TextView textView = (TextView) rowView.findViewById(R.id.label);
+		TextView textView = (TextView) rowView.findViewById(R.id.marca);
+		TextView textView2 = (TextView) rowView.findViewById(R.id.precio);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-		textView.setText(values[position].getMarca());
+		textView.setText("Marca: "+values.get(position).getMarca()+" ");
+		textView2.setText("Precio: "+df.format(values.get(position).getPrecio()));
  
 		// Change icon based on name
 		//String s = values[position].getImagen();
 		String s="lol";
-		System.out.println(s);
- 
 		if (s.equals("HP")) {
 			imageView.setImageResource(R.drawable.lap2);
 		} else if (s.equals("Compaq")) {

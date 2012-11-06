@@ -114,7 +114,7 @@ public class MainActivity extends ListActivity {
 		actualizarLista();
 		
 		creaLista();
-		setListAdapter(new Adaptador(this,	lista2));
+		//setListAdapter(new Adaptador(this,	lista));
 	
 	}
 
@@ -190,7 +190,8 @@ public class MainActivity extends ListActivity {
 		Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
 		//carga la activity de detallada
 		Intent nextActivity = new Intent(this, Detalle.class);
-		nextActivity.putExtra("Marca", lista2[pos].getMarca());
+		nextActivity.putExtra("Marca", lista.get(pos).getMarca());
+		nextActivity.putExtra("Detalles", lista.get(pos).getDetalles());
 		startActivity(nextActivity);
  
 	}
@@ -282,6 +283,7 @@ public class MainActivity extends ListActivity {
 					computadora.setMarca(json.getString("Familia"));
 					computadora.setModelo(json.getString("Sub familia"));
 					computadora.setPrecio(json.getDouble("Precio"));
+					computadora.setDetalles(json.getString("Detalles"));
 					lista.add(computadora);
 				}
 			} catch (JSONException e) {
@@ -289,6 +291,8 @@ public class MainActivity extends ListActivity {
 				return;
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
+			System.out.println("Prueba de la lista: "+lista.get(0).getDetalles());
+			setListAdapter(new Adaptador(MainActivity.this,	lista));
 			
 		}
 		
