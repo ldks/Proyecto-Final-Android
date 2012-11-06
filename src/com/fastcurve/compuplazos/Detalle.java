@@ -21,9 +21,10 @@ public class Detalle extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detallada);
 		Intent intent = getIntent();
-		String lol= intent.getStringExtra("Marca");
+		String marca= intent.getStringExtra("Marca");
+		String detalles = intent.getStringExtra("Detalles");
 		text = (TextView)findViewById(R.id.TextView04);
-		text.setText(lol);
+		text.setText(detalles);
 	}
 	
 

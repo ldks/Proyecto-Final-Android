@@ -16,12 +16,21 @@
     </ImageView>
  
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/marca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@+id/label"
+        android:text="@+id/marca"
         android:textSize="30px" >
     </TextView>
+    
+    <TextView
+        android:id="@+id/precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/precio"
+        android:textSize="30px" >
+    </TextView>
+  
         <Button
             android:id="@+id/boton"
             android:layout_width="fill_parent"
