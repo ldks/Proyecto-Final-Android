@@ -144,6 +144,9 @@ public class MainActivity extends ListActivity {
 		// Este switch sirve para ejecutar un metodo acorde a la opcion que se
 		// seleccionó
 		switch (item.getItemId()) {
+		case R.id.actualizarMenuItem:
+			this.actualizarLista();
+			break;
 		case R.id.principalMenuItem:
 			currentView = R.layout.activity_main;
 			break;
@@ -274,13 +277,14 @@ public class MainActivity extends ListActivity {
 			JSONArray computadoras = null;
 			try {
 				computadoras = new JSONArray(result);
+				
 				lista.clear();
 				for (int i=0; i<computadoras.length(); i++) {
 					Computadora computadora = new Computadora();
 					JSONObject json = computadoras.getJSONObject(i);
 					computadora.setId(json.getInt("Id"));
 					computadora.setClave(json.getString("Clave"));
-					computadora.setImagen(jsonarrayToImage(json.getJSONArray("Imagen")));
+//					computadora.setImagen(jsonarrayToImage(json.getJSONArray("Imagen")));
 					computadora.setCategoria(json.getString("Categoria"));
 					computadora.setMarca(json.getString("Familia"));
 					computadora.setModelo(json.getString("Sub familia"));
@@ -290,6 +294,7 @@ public class MainActivity extends ListActivity {
 				}
 			} catch (JSONException e) {
 				Log.e("JSON Error", "Error converting results to JSON object");
+				Log.e("JSON Error", e.getLocalizedMessage());
 				return;
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
