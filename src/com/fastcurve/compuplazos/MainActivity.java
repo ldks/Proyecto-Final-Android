@@ -56,9 +56,6 @@ import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
 	
-	// Tarea que actualiza la lista de computadoras
-	private final ActualizaLista task = new ActualizaLista();
-	
 	/*
 	 * La variable currentView sirve de "singleton" para saber en que vista se
 	 * habia quedado la pantalla antes de girarla de este modo, cada ves que
@@ -72,28 +69,11 @@ public class MainActivity extends ListActivity {
 	
 	// dialogo mostrado al actualizar la lista de computadoras
 	private ProgressDialog progressDialog;
+	
 
 	// Dialogo para confirmar cerrar la aplicación
 	private AtomicBoolean dialogoVisible = new AtomicBoolean();
-
-	// Este objeto sirve para poder abrir un archivo de audio y poder
-	// manipularlo
-	MediaPlayer mPlayer;
 	
-	/*
-	 * Metodo para probar autogeneraci�n de tabla
-	 */
-	static final int cantidad=5;
-	static final Computadora lista2[]=new Computadora[cantidad];
-	public void creaLista(){
-		for(int i=0; i<cantidad;i++){
-			lista2[i]=new Computadora();
-		}
-	}
-	/*
-	 * fin de prueba
-	 */
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -101,26 +81,22 @@ public class MainActivity extends ListActivity {
 
 		// inicializamos el dialogo que se muestra al actualizar
 		progressDialog = new ProgressDialog(this);
-		progressDialog.setMessage("Actualizando...");
-		progressDialog.setTitle("Progreso");
-		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		progressDialog.setMessage("Actualizando lista de computadoras...");
+		progressDialog.setTitle("Actualizando");
+		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressDialog.setCancelable(false);
 
-		// crea el archivo de audio y lo reproduce
-		mPlayer = MediaPlayer.create(this, R.raw.dviolin);
-		mPlayer.setLooping(true);
-		mPlayer.start();
-		mPlayer.stop();
-		
 		actualizarLista();
 		
-		creaLista();
-		//setListAdapter(new Adaptador(this,	lista));
+		setListAdapter(new Adaptador(this,	lista));
 	
 	}
 
 	private void actualizarLista() {
+		// Tarea que actualiza la lista de computadoras
 		progressDialog.show();
+		
+		final ActualizaLista task = new ActualizaLista();
 		task.execute();
 	}
 
@@ -149,15 +125,19 @@ public class MainActivity extends ListActivity {
 			break;
 		case R.id.principalMenuItem:
 			currentView = R.layout.activity_main;
+			setContentView(currentView);
 			break;
 		case R.id.empresaMenuItem:
 			currentView = R.layout.acercade_empresa;
+			setContentView(currentView);
 			break;
 		case R.id.nosotrosMenuItem:
 			currentView = R.layout.acercade_nosotros;
+			setContentView(currentView);
 			break;
 		case R.id.aplicacionMenuItem:
 			currentView = R.layout.acercade_aplicacion;
+			setContentView(currentView);
 			break;
 		case R.id.salirMenuItem:
 			destroy();
@@ -165,7 +145,6 @@ public class MainActivity extends ListActivity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-		setContentView(currentView);
 		return true;
 	}
 
@@ -177,9 +156,8 @@ public class MainActivity extends ListActivity {
 	 * 
 	 * @see android.app.Activity#onConfigurationChanged(android.content.res.Configuration)
 	 */
-	/*public void onConfigurationChanged(Configuration newConfig) {
-	 *
-	 *
+	/*
+	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		// cambia el view a lo que estaba antes de cambiar la orientación
 		setContentView(currentView);
@@ -190,7 +168,7 @@ public class MainActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
     	//get selected items
     	int pos= (int)getListAdapter().getItemId(position);
-		String selectedValue = lista2[(int)getListAdapter().getItemId(position)].getMarca();
+		String selectedValue = lista.get((int)getListAdapter().getItemId(position)).getMarca();
 		Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
 		//carga la activity de detallada
 		Intent nextActivity = new Intent(this, Detalle.class);
@@ -206,7 +184,6 @@ public class MainActivity extends ListActivity {
 	 * recursos de audio y despues hace lo que el boton back deberia de hacer.
 	 */
 	public void onBackPressed() {
-		mPlayer.release();
 		this.finish();
 	}
 

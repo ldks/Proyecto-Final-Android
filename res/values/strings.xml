@@ -23,5 +23,6 @@
     <string name="texto1">Marca: Hp   Precio: 1,800</string>
     <string name="texto2">Marca: Compaq  Precio: 1,235</string>
     <string name="texto3">Marca: Hp. Precio: 2,500 Ram: 2GB HD: 200GB Pantalla:14&quot;</string>
+    <string name="error_compra"></string>
 
 </resources>

@@ -29,9 +29,11 @@ public class Adaptador extends ArrayAdapter<Computadora> {
  
 		View rowView = inflater.inflate(R.layout.activity_main, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.marca);
+		TextView modelo = (TextView) rowView.findViewById(R.id.modelo);
 		TextView textView2 = (TextView) rowView.findViewById(R.id.precio);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-		textView.setText("Marca: "+values.get(position).getMarca()+" ");
+		textView.setText("Marca: "+values.get(position).getMarca());
+		modelo.setText("Modelo: "+values.get(position).getModelo());
 		textView2.setText("Precio: "+df.format(values.get(position).getPrecio()));
  
 		// Change icon based on name
