@@ -16,5 +16,6 @@
             	</intent-filter>
         	</activity>
             <activity android:name="Detalle"></activity>
+            <activity android:name="Compra"></activity>
         </application>
     </manifest>

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:gravity="right"
     android:padding="5dp" >
-
+    
     <ImageView
         android:id="@+id/logo"
         android:layout_width="100px"
@@ -55,5 +55,4 @@
         android:text="Agregar
 al Carrito"
         android:textSize="10dp" />
-
 </LinearLayout>

@@ -1,60 +1,36 @@
 package com.fastcurve.compuplazos;
 
-import java.io.*;
-import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
-import android.widget.ListView;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity {
 	
 	/*
 	 * La variable currentView sirve de "singleton" para saber en que vista se
@@ -77,8 +53,8 @@ public class MainActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_main);
-
+		setContentView(R.layout.activity_main);
+		
 		// inicializamos el dialogo que se muestra al actualizar
 		progressDialog = new ProgressDialog(this);
 		progressDialog.setMessage("Actualizando lista de computadoras...");
@@ -86,16 +62,17 @@ public class MainActivity extends ListActivity {
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressDialog.setCancelable(false);
 
+		// Se actualiza la lista al iniciar la aplicación
 		actualizarLista();
 		
-		setListAdapter(new Adaptador(this,	lista));
-	
+		//setListAdapter(new Adaptador(this,	lista));
 	}
 
 	private void actualizarLista() {
-		// Tarea que actualiza la lista de computadoras
-		progressDialog.show();
+		// muestra el dialogo de actualización
+		//progressDialog.show();
 		
+		// Tarea que actualiza la lista de computadoras
 		final ActualizaLista task = new ActualizaLista();
 		task.execute();
 	}
@@ -164,6 +141,7 @@ public class MainActivity extends ListActivity {
 	}
 	*/
 	
+	/*
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
     	//get selected items
@@ -177,7 +155,7 @@ public class MainActivity extends ListActivity {
 		startActivity(nextActivity);
  
 	}
-
+	*/
 	/**
 	 * Para evitar que el audio siga reproduciendose una ves cerrada la
 	 * aplicacion, se usa este metodo, que al precionar back, primero libera los
@@ -276,7 +254,7 @@ public class MainActivity extends ListActivity {
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
 			System.out.println("Prueba de la lista: "+lista.get(0).getDetalles());
-			setListAdapter(new Adaptador(MainActivity.this,	lista));
+			//setListAdapter(new Adaptador(MainActivity.this,	lista));
 			
 		}
 		
