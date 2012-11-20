@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
-import android.app.Activity;
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,7 +30,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 	
 	/*
 	 * La variable currentView sirve de "singleton" para saber en que vista se
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 		
 		// inicializamos el dialogo que se muestra al actualizar
 		progressDialog = new ProgressDialog(this);
@@ -65,12 +65,12 @@ public class MainActivity extends Activity {
 		// Se actualiza la lista al iniciar la aplicación
 		actualizarLista();
 		
-		//setListAdapter(new Adaptador(this,	lista));
+		setListAdapter(new Adaptador(this,	lista));
 	}
 
 	private void actualizarLista() {
 		// muestra el dialogo de actualización
-		//progressDialog.show();
+		progressDialog.show();
 		
 		// Tarea que actualiza la lista de computadoras
 		final ActualizaLista task = new ActualizaLista();
@@ -141,7 +141,7 @@ public class MainActivity extends Activity {
 	}
 	*/
 	
-	/*
+	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
     	//get selected items
@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
 		startActivity(nextActivity);
  
 	}
-	*/
+	
 	/**
 	 * Para evitar que el audio siga reproduciendose una ves cerrada la
 	 * aplicacion, se usa este metodo, que al precionar back, primero libera los
@@ -254,7 +254,7 @@ public class MainActivity extends Activity {
 			}
 			Log.i("Actualizacion:: ", computadoras.toString());
 			System.out.println("Prueba de la lista: "+lista.get(0).getDetalles());
-			//setListAdapter(new Adaptador(MainActivity.this,	lista));
+			setListAdapter(new Adaptador(MainActivity.this,	lista));
 			
 		}
 		
