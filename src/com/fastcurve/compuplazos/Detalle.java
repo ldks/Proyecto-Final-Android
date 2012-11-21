@@ -1,9 +1,12 @@
 package com.fastcurve.compuplazos;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +26,8 @@ public class Detalle extends Activity{
 		Intent intent = getIntent();
 		String marca= intent.getStringExtra("Marca");
 		String detalles = intent.getStringExtra("Detalles");
+		ArrayList<Computadora> lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
+		Log.i("Lista", lista.get(0).getClave());
 		text = (TextView)findViewById(R.id.TextView04);
 		text.setText(detalles);
 	}

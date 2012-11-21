@@ -167,6 +167,9 @@ public class MainActivity extends ListActivity {
 		Intent nextActivity = new Intent(this, Detalle.class);
 		nextActivity.putExtra("Marca", lista.get(pos).getMarca());
 		nextActivity.putExtra("Detalles", lista.get(pos).getDetalles());
+		Bundle bundle = new Bundle();
+		bundle.putParcelableArrayList("lista", lista);
+		nextActivity.putExtra("bundle", bundle);
 		startActivity(nextActivity);
  
 	}
