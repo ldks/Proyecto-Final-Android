@@ -30,5 +30,8 @@
     <string name="strInfoCompra">Para continuar, debe proveer su e-mail, su teléfono o los dos.</string>
     <string name="btnAgregarAlCarrito">Agregar al carrito</string>
     <string name="labelDetalles">Detalles:</string>
+    <string name="contentDescriptionImagenDetalles">Imagen de la computadora seleccionada</string>
+    <string name="contentDescriptionEmpty"></string>
+    <string name="contentDescriptionCompu">Imagen de la computadora</string>
 
 </resources>
