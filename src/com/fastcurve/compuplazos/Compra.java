@@ -49,7 +49,7 @@ public class Compra extends Activity {
 		} else {
 			textViewError.setText("");
 			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-			String[] recipients = new String[]{"slarra@pysis.com.mx", "",};
+			String[] recipients = new String[]{"islarrab@gmail.com", "",};
 			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
 			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Compra por android");
 			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);

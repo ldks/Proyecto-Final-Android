@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,12 +17,7 @@ import android.widget.TextView;
 
 public class Detalle extends Activity{
 
-	TextView text;
-	String marca;
-	String detalles;
-	double precio;
-	ArrayList<String> carroM;
-	ArrayList<String> carroP;
+	Computadora computadora;
 	ArrayList<Computadora> lista;
 	
 	@Override
@@ -30,15 +26,24 @@ public class Detalle extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detallada);
 		Intent intent = getIntent();
-		String marca= intent.getStringExtra("Marca");
-		String detalles = intent.getStringExtra("Detalles");
-		text = (TextView)findViewById(R.id.TextView04);
-		text.setText(detalles);
-		double precio=intent.getDoubleExtra("precio", 0);
-		carroM=intent.getStringArrayListExtra("lMarca");
-		carroP=intent.getStringArrayListExtra("lPrecio");
-		
+		int pos = intent.getIntExtra("pos", 0);
 		lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
+		
+		this.computadora = lista.get(pos);
+		String marca = computadora.getMarca();
+		String modelo = computadora.getModelo();
+		double precio = computadora.getPrecio();
+		String detalles = computadora.getDetalles();
+		
+		TextView textViewMarca = (TextView) findViewById(R.id.marca);
+		TextView textViewModelo = (TextView) findViewById(R.id.modelo);
+		TextView textViewPrecio = (TextView) findViewById(R.id.precio);
+		TextView textViewDetalles =  (TextView) findViewById(R.id.textViewDetalles);
+		
+		textViewMarca.setText("Marca: "+marca);
+		textViewModelo.setText("Modelo: "+modelo);
+		textViewPrecio.setText("Precio: "+precio);
+		textViewDetalles.setText(detalles);
 	}
 	
 
@@ -56,8 +61,6 @@ public class Detalle extends Activity{
 	
 	public void clickHandler(View v){
 		Intent nextActivity = new Intent(this, Carrito.class);
-		carroM.add(marca);
-		carroP.add(""+precio);
 		nextActivity.putExtra("lista", lista);
 		startActivity(nextActivity);
 	}

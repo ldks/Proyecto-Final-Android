@@ -13,6 +13,7 @@ public class Computadora implements Parcelable {
 	private String modelo;
 	private String detalles;
 	private double precio;
+	private int cantidad;
 
 	public Computadora() {
 		setId(-1);
@@ -27,6 +28,7 @@ public class Computadora implements Parcelable {
 		modelo = "N/A";
 		detalles = "";
 		precio = 0;
+		setCantidad(0);
 	}
 
 	public Computadora(int id, String cl, Bitmap i, String ca, String ma,
@@ -39,6 +41,7 @@ public class Computadora implements Parcelable {
 		this.setModelo(mo);
 		this.setDetalles(d);
 		this.setPrecio(p);
+		this.setCantidad(0);
 	}
 	
 	public Computadora(Parcel parcel) {
@@ -49,6 +52,7 @@ public class Computadora implements Parcelable {
 		setModelo(parcel.readString());
 		setDetalles(parcel.readString());
 		setPrecio(parcel.readDouble());
+		setCantidad(parcel.readInt());
 	}
 
 	public int getId() {
@@ -115,13 +119,21 @@ public class Computadora implements Parcelable {
 		this.precio = precio;
 	}
 
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+	
 	public int describeContents() {
 		// no tengo idea de que haga esto
 		return 0;
 	}
 
 	public void writeToParcel(Parcel dest, int flags) {
-		// escribe los
+		// escribe los campos de la clase en orden
 		dest.writeInt(id);
 		dest.writeString(clave);
 		// dest.writeByteArray(imagen);
@@ -130,7 +142,9 @@ public class Computadora implements Parcelable {
 		dest.writeString(modelo);
 		dest.writeString(detalles);
 		dest.writeDouble(precio);
+		dest.writeInt(cantidad);
 	}
+
 
 	public static final Parcelable.Creator<Computadora> CREATOR = new Parcelable.Creator<Computadora>() {
 		public Computadora createFromParcel(Parcel in) {

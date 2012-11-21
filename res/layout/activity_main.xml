@@ -53,7 +53,7 @@
         android:layout_gravity="center_vertical|right"
         android:focusable="false"
         android:onClick="ClickHandler"
-        android:text="Agregar al Carrito"
+        android:text="@string/btnAgregarAlCarrito"
         android:textSize="10dp" />
 
 </LinearLayout>
