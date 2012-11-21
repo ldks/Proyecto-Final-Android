@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,31 +31,26 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		View rowView = inflater.inflate(R.layout.carrito, parent, false);
-<<<<<<< HEAD
-			ImageView imageView = (ImageView) rowView.findViewById(R.id.ImageView01);
-			TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
-			TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
-			EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
-			if(values.get(position).getCantidad()>=1) {
-			textView.setText("Marca: "+values.get(position).getMarca());
-			textView2.setText("Precio: "+values.get(position).getPrecio());
 
-		//textView2.setText("Precio: "+df.format(values2.get(position)));
-		}else{
-			rowView.setVisibility(View.GONE);
-		}
-		return rowView;
-		
-=======
 		
 		TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
 		TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
-		EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
+		final EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
 		textView.setText("Marca: "+values.get(position).getMarca());
 		textView2.setText("Precio: "+values.get(position).getPrecio());
+		Button boton= (Button)rowView.findViewById(R.id.Guardar);
+		Button boton2= (Button)rowView.findViewById(R.id.Quitar);
+		final int pos=position; 
+		boton.setOnClickListener( new OnClickListener(){
+			public void onClick(View v) {
+				System.out.println("Posicón:"+pos);
+				cantidad.getText();
+				
+			}
+			
+		});
 		//textView2.setText("Precio: "+df.format(values2.get(position)));
 		
 		return rowView;
->>>>>>> 402625186683418eb94b3a0720026d95e5d82e5f
 	}
 }

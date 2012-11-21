@@ -29,16 +29,10 @@ public class Carrito extends ListActivity{
 		return super.onOptionsItemSelected(item);
 	}
 	
-<<<<<<< HEAD
-	public void onBackPressed() {
-		finish();
-	}
-	
-=======
+
 	public void comprar(View v) {
 		Intent nextActivity = new Intent(this, Compra.class);
 		startActivity(nextActivity);
 	}
->>>>>>> 402625186683418eb94b3a0720026d95e5d82e5f
 
 }
