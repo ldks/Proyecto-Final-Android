@@ -26,9 +26,10 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context
-			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
- 
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
 		View rowView = inflater.inflate(R.layout.carrito, parent, false);
+<<<<<<< HEAD
 			ImageView imageView = (ImageView) rowView.findViewById(R.id.ImageView01);
 			TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
 			TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
@@ -43,5 +44,16 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 		}
 		return rowView;
 		
+=======
+		
+		TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
+		TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
+		EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
+		textView.setText("Marca: "+values.get(position).getMarca());
+		textView2.setText("Precio: "+values.get(position).getPrecio());
+		//textView2.setText("Precio: "+df.format(values2.get(position)));
+		
+		return rowView;
+>>>>>>> 402625186683418eb94b3a0720026d95e5d82e5f
 	}
 }

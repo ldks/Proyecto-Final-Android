@@ -53,7 +53,6 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center_vertical|right"
         android:focusable="false"
-        android:onClick="ClickHandler"
         android:text="@string/btnAgregarAlCarrito"
         android:textSize="10dp" />
 

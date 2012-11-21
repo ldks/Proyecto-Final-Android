@@ -42,7 +42,7 @@ public class MainActivity extends ListActivity {
 	private static int currentView;
 	
 	// lista de computadoras
-	private ArrayList<Computadora> lista = new ArrayList<Computadora>();
+	public static final ArrayList<Computadora> lista = new ArrayList<Computadora>();
 	
 	public ArrayList<String> carroM = new ArrayList<String>();
 	public ArrayList<String> carroP = new ArrayList<String>();
@@ -80,7 +80,7 @@ public class MainActivity extends ListActivity {
 	@Override
 	public void onRestoreInstanceState(Bundle inState) {
 		// recupera la lista de computadoras
-		lista = inState.getParcelableArrayList("computadoras");
+//		lista = inState.getParcelableArrayList("computadoras");
 		setListAdapter(new Adaptador(this,	lista));
 	}
 
@@ -165,9 +165,6 @@ public class MainActivity extends ListActivity {
 		Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
 		// carga la activity de detallada
 		Intent nextActivity = new Intent(this, Detalle.class);
-		Bundle bundle = new Bundle();
-		bundle.putParcelableArrayList("lista", lista);
-		nextActivity.putExtra("bundle", bundle);
 		nextActivity.putExtra("pos", pos);
 		startActivity(nextActivity);
  
@@ -289,10 +286,5 @@ public class MainActivity extends ListActivity {
 			}
 			return BitmapFactory.decodeByteArray(bitmapdata , 0, bitmapdata.length);
 		}
-		
 	}
-	
-	public void ClickHandler(View v){
-    	System.out.println("Lol");
-    }
 }
