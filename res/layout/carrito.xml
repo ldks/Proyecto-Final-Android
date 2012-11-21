@@ -69,10 +69,11 @@
             android:textSize="10dp" >
             
         </Button>
-        <Button
+        <Button
             android:id="@+id/Guardar"
-            android:text="Guardar Cambios"
-            android:textSize="10dp" >
+            android:text="Comprar"
+            android:textSize="10dp" 
+            android:onClick="comprar" >
             
         </Button>
     </TableRow>

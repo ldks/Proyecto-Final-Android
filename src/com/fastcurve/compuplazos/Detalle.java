@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 public class Detalle extends Activity{
 
-	Computadora computadora;
-	ArrayList<Computadora> lista;
+	private int pos;
+	private ArrayList<Computadora> lista = MainActivity.lista;
+	private Computadora computadora;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,7 @@ public class Detalle extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detallada);
 		Intent intent = getIntent();
-		int pos = intent.getIntExtra("pos", 0);
-		lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
+		pos = intent.getIntExtra("pos", 0);
 		
 		this.computadora = lista.get(pos);
 		String marca = computadora.getMarca();
@@ -55,11 +55,9 @@ public class Detalle extends Activity{
     }
 	
 	public void clickHandler(View v){
+		this.lista.get(pos).setCantidad(this.computadora.getCantidad()+1);
+		
 		Intent nextActivity = new Intent(this, Carrito.class);
-		this.computadora.setCantidad(this.computadora.getCantidad()+1);
-		Bundle bundle = new Bundle();
-		bundle.putParcelableArrayList("lista", lista);
-		nextActivity.putExtra("bundle", bundle);
 		startActivity(nextActivity);
 	}
 
