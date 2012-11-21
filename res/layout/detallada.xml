@@ -33,7 +33,8 @@
          android:minHeight="20dip"
          android:minWidth="20dip"
          android:text="Agregar al Carrito"
-         android:textSize="10dp" />
+         android:textSize="10dp"
+         android:onClick="clickHandler" />
 
     </TableRow>   
 

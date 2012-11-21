@@ -15,17 +15,18 @@ public class Carrito extends ListActivity{
 	String marca;
 	String detalles;
 	double precio;
-	private ArrayList<Computadora> lista = new ArrayList<Computadora>();
+	ArrayList<String> carroM;
+	ArrayList<String> carroP;
+	ArrayList<Computadora> lista;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.carrito);
+		//setContentView(R.layout.carrito);
 		Intent intent = getIntent();
-		String marca= intent.getStringExtra("Marca");
-		String detalles = intent.getStringExtra("Detalles");
-		text = (TextView)findViewById(R.id.TextView04);
-		text.setText(detalles);
+		carroM=intent.getStringArrayListExtra("lMarca");
+		carroP=intent.getStringArrayListExtra("lPrecio");
+		lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
 		setListAdapter(new AdaptadorCarrito(this,lista));
 	}
 	
@@ -36,10 +37,5 @@ public class Carrito extends ListActivity{
 		return super.onOptionsItemSelected(item);
 	}
 	
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
 
 }

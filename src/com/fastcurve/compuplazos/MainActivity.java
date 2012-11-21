@@ -70,7 +70,7 @@ public class MainActivity extends ListActivity {
 		// Se actualiza la lista solo al iniciar la aplicación
 		if (savedInstanceState == null) {
 			actualizarLista();
-			setListAdapter((ListAdapter) new Adaptador(this,	lista));
+			setListAdapter(new Adaptador(this,	lista));
 		}
 	}
 	
@@ -172,9 +172,16 @@ public class MainActivity extends ListActivity {
 		nextActivity.putExtra("Marca", lista.get(pos).getMarca());
 		nextActivity.putExtra("Detalles", lista.get(pos).getDetalles());
 		nextActivity.putExtra("Precio",lista.get(pos).getPrecio());
-		nextActivity.putExtra("lMarca", carroM.add(lista.get(pos).getMarca()));
-		nextActivity.putExtra("lPrecio", carroP.add(""+lista.get(pos).getPrecio()));
-		nextActivity.putExtra("lista", lista);
+		carroM.add(lista.get(pos).getMarca());
+		nextActivity.putExtra("lMarca", carroM);
+		carroP.add(""+lista.get(pos).getPrecio());
+		nextActivity.putExtra("lPrecio", carroP);
+		
+		Bundle bundle = new Bundle();
+		bundle.putParcelableArrayList("lista", lista);
+		nextActivity.putExtra("bundle", bundle);
+		
+		startActivity(nextActivity);
  
 	}
 	

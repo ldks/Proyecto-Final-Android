@@ -27,6 +27,12 @@
             android:gravity="center"
             android:text="@string/texto1"
             android:textSize="15dp" />
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/texto1"
+            android:textSize="15dp" />
     </TableRow> 
 
     <TableRow android:baselineAligned="false" >

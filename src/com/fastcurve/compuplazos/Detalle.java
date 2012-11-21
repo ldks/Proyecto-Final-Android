@@ -23,7 +23,7 @@ public class Detalle extends Activity{
 	ArrayList<String> carroM;
 	ArrayList<String> carroP;
 	ArrayList<Computadora> lista;
-	Computadora[] lista2;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -37,7 +37,8 @@ public class Detalle extends Activity{
 		double precio=intent.getDoubleExtra("precio", 0);
 		carroM=intent.getStringArrayListExtra("lMarca");
 		carroP=intent.getStringArrayListExtra("lPrecio");
-		lista2 = (Computadora[]) intent.getParcelableArrayExtra("lista");
+		
+		lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
 	}
 	
 
@@ -55,8 +56,9 @@ public class Detalle extends Activity{
 	
 	public void clickHandler(View v){
 		Intent nextActivity = new Intent(this, Carrito.class);
-		nextActivity.putExtra("Marca", marca);
-		nextActivity.putExtra("Precio", precio);
+		carroM.add(marca);
+		carroP.add(""+precio);
+		nextActivity.putExtra("lista", lista);
 		startActivity(nextActivity);
 	}
 

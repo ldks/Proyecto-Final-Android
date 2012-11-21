@@ -17,7 +17,7 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 	DecimalFormat df = new DecimalFormat("#.##");
  
 	public AdaptadorCarrito(Context context, ArrayList<Computadora> lista) {
-		super(context, R.layout.activity_main, lista);
+		super(context, R.layout.carrito, lista);
 		this.context = context;
 		this.values = lista;
 	}
@@ -27,27 +27,11 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 		LayoutInflater inflater = (LayoutInflater) context
 			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
  
-		View rowView = inflater.inflate(R.layout.activity_main, parent, false);
-		TextView textView = (TextView) rowView.findViewById(R.id.marca);
-		TextView modelo = (TextView) rowView.findViewById(R.id.modelo);
-		TextView textView2 = (TextView) rowView.findViewById(R.id.precio);
-		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-		textView.setText("Marca: "+values.get(position).getMarca());
-		modelo.setText("Modelo: "+values.get(position).getModelo());
-		textView2.setText("Precio: "+df.format(values.get(position).getPrecio()));
- 
-		// Change icon based on name
-		//String s = values[position].getImagen();
-		String s="lol";
-		if (s.equals("HP")) {
-			imageView.setImageResource(R.drawable.lap2);
-		} else if (s.equals("Compaq")) {
-			imageView.setImageResource(R.drawable.lap2);
-		} else if (s.equals("Acer")) {
-			imageView.setImageResource(R.drawable.lap2);
-		} else {
-			imageView.setImageResource(R.drawable.lap2);
-		}
+		View rowView = inflater.inflate(R.layout.carrito, parent, false);
+		TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
+		TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
+		textView.setText("Marca: "+values.get(position));
+		//textView2.setText("Precio: "+df.format(values2.get(position)));
  
 		return rowView;
 	}
