@@ -62,13 +62,13 @@
         android:textSize="15dp" />
 
     <Button
+        android:onClick="clickHandler"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:minHeight="20dip"
         android:minWidth="20dip"
         android:text="@string/btnAgregarAlCarrito"
         android:textSize="10dp" />
->>>>>>> 24172b84642617d57626ace0b77083dc6a29edee
 
 </TableLayout>
 </ScrollView>

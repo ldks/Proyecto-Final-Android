@@ -61,7 +61,10 @@ public class Detalle extends Activity{
 	
 	public void clickHandler(View v){
 		Intent nextActivity = new Intent(this, Carrito.class);
-		nextActivity.putExtra("lista", lista);
+		this.computadora.setCantidad(this.computadora.getCantidad()+1);
+		Bundle bundle = new Bundle();
+		bundle.putParcelableArrayList("lista", lista);
+		nextActivity.putExtra("bundle", bundle);
 		startActivity(nextActivity);
 	}
 

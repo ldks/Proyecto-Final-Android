@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
  
@@ -24,15 +25,23 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
  
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		if(values.get(position).getCantidad()>=1) {
 		LayoutInflater inflater = (LayoutInflater) context
 			.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
  
 		View rowView = inflater.inflate(R.layout.carrito, parent, false);
-		TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
-		TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
-		textView.setText("Marca: "+values.get(position));
+		
+			TextView textView = (TextView) rowView.findViewById(R.id.TextView01);
+			TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
+			EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
+			textView.setText("Marca: "+values.get(position).getMarca());
+			textView2.setText("Precio: "+values.get(position).getPrecio());
+
 		//textView2.setText("Precio: "+df.format(values2.get(position)));
  
 		return rowView;
+		} else {
+			return null;
+		}
 	}
 }
