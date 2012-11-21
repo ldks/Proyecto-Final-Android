@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 public class Detalle extends Activity{
 
+	Computadora computadora;
+	
 	TextView text;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +26,24 @@ public class Detalle extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detallada);
 		Intent intent = getIntent();
-		String marca= intent.getStringExtra("Marca");
-		String detalles = intent.getStringExtra("Detalles");
-		ArrayList<Computadora> lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
-		Log.i("Lista", lista.get(0).getClave());
-		text = (TextView)findViewById(R.id.TextView04);
-		text.setText(detalles);
+		int pos = intent.getIntExtra("pos", 0);
+		ArrayList<Computadora>lista = intent.getBundleExtra("bundle").getParcelableArrayList("lista");
+		
+		this.computadora = lista.get(pos);
+		String marca = computadora.getMarca();
+		String modelo = computadora.getModelo();
+		double precio = computadora.getPrecio();
+		String detalles = computadora.getDetalles();
+		
+		TextView textViewMarca = (TextView) findViewById(R.id.marca);
+		TextView textViewModelo = (TextView) findViewById(R.id.modelo);
+		TextView textViewPrecio = (TextView) findViewById(R.id.precio);
+		TextView textViewDetalles =  (TextView) findViewById(R.id.textViewDetalles);
+		
+		textViewMarca.setText("Marca: "+marca);
+		textViewModelo.setText("Modelo: "+modelo);
+		textViewPrecio.setText("Precio: "+precio);
+		textViewDetalles.setText(detalles);
 	}
 	
 

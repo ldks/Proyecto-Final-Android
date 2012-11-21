@@ -158,18 +158,16 @@ public class MainActivity extends ListActivity {
 	
 	
 	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-    	//get selected items
-    	int pos= (int)getListAdapter().getItemId(position);
-		String selectedValue = lista.get((int)getListAdapter().getItemId(position)).getMarca();
+	protected void onListItemClick(ListView l, View v, int pos, long id) {
+    	// get selected item
+		String selectedValue = lista.get(pos).getMarca();
 		Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
-		//carga la activity de detallada
+		// carga la activity de detallada
 		Intent nextActivity = new Intent(this, Detalle.class);
-		nextActivity.putExtra("Marca", lista.get(pos).getMarca());
-		nextActivity.putExtra("Detalles", lista.get(pos).getDetalles());
 		Bundle bundle = new Bundle();
 		bundle.putParcelableArrayList("lista", lista);
 		nextActivity.putExtra("bundle", bundle);
+		nextActivity.putExtra("pos", pos);
 		startActivity(nextActivity);
  
 	}

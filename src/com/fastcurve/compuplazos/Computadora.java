@@ -133,7 +133,7 @@ public class Computadora implements Parcelable {
 	}
 
 	public void writeToParcel(Parcel dest, int flags) {
-		// escribe los
+		// escribe los campos de la clase en orden
 		dest.writeInt(id);
 		dest.writeString(clave);
 		// dest.writeByteArray(imagen);
