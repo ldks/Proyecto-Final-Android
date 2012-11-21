@@ -15,6 +15,7 @@ public class Compra extends Activity {
 	private EditText editTextTel;
 	private TextView textViewError;
 	private Button btnPedir;
+	private String pedido;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -37,17 +38,22 @@ public class Compra extends Activity {
 		Log.i("Compra click", "Click a Pedir Cotización");
 		String email = editTextEmail.getText().toString();
 		String tel = editTextTel.getText().toString();
+		String text = "Un cliente con esta información:\n"+
+					"	Email: "+email+"\n"+
+					"	Teléfono: "+tel+"\n"+
+					"Pidió a traves de la aplicación en android:\n";
+		text.concat(pedido);
 		if (email.isEmpty() && tel.isEmpty()) {
 			textViewError.setText("Se debe de llenar por lo menos uno de los campos");
 		} else {
 			textViewError.setText("");
 			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-			String[] recipients = new String[]{"islarrab@gmail.com", "",};
+			String[] recipients = new String[]{"slarra@pysis.com.mx", "",};
 			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Test");
-			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "This is email's message");
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Compra por android");
+			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
 			emailIntent.setType("text/plain");
-			startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+			startActivity(Intent.createChooser(emailIntent, "Mandar petición por..."));
 			finish();
 		}
 	}
