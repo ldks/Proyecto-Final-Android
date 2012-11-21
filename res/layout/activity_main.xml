@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     android:gravity="right"
     android:padding="5dp" >
-    
+
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="100px"
-        android:layout_height="100px"
-        android:layout_marginLeft="5px"
-        android:layout_marginRight="20px"
-        android:layout_marginTop="5px"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="15dp"
         android:layout_weight="0.25"
         android:src="@drawable/lap1" >
 
@@ -20,6 +20,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:orientation="vertical" >
 
@@ -28,31 +29,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/marca"
-            android:textSize="25px" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/modelo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/modelo"
-            android:textSize="25px" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/precio"
-            android:textSize="25px" />
+            android:textSize="16dp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/boton"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="fill_parent"
-        android:layout_weight="0.1"
+        android:layout_gravity="center_vertical|right"
         android:focusable="false"
         android:onClick="ClickHandler"
-        android:text="Agregar
-al Carrito"
+        android:text="Agregar al Carrito"
         android:textSize="10dp" />
+
 </LinearLayout>
