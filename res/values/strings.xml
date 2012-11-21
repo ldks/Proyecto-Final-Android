@@ -23,5 +23,6 @@
     <string name="texto1">Marca: Hp   Precio: 1,800</string>
     <string name="texto2">Marca: Compaq  Precio: 1,235</string>
     <string name="texto3">Marca: Hp. Precio: 2,500 Ram: 2GB HD: 200GB Pantalla:14&quot;</string>
+    <string name="Description">Esta aplicación es para poder consultar la tienda Compuplazos, para asi poder ver el inventario con el que cuentas, descripciones de los artículos, y poder comprar un producto si asi lo desea</string>
 
 </resources>

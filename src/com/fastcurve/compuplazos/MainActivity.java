@@ -54,7 +54,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-	
+	ArrayList<String> carrito;
 	// Tarea que actualiza la lista de computadoras
 	private final ActualizaLista task = new ActualizaLista();
 	
