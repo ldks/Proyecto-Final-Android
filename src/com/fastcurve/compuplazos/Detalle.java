@@ -62,5 +62,7 @@ public class Detalle extends Activity{
 		nextActivity.putExtra("bundle", bundle);
 		startActivity(nextActivity);
 	}
-
+	public void onBackPressed() {
+		finish();
+	}
 }

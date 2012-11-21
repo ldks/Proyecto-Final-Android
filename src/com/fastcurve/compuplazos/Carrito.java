@@ -27,5 +27,9 @@ public class Carrito extends ListActivity{
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void onBackPressed() {
+		finish();
+	}
+	
 
 }

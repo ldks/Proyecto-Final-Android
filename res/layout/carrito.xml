@@ -1,10 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/carrito"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/carrito"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:shrinkColumns="*"
@@ -62,19 +62,5 @@
 
     </TableRow>
     
-    <TableRow>
-        <Button
-            android:id="@+id/Continuar"
-            android:text="Continuar Comprando"
-            android:textSize="10dp" >
-            
-        </Button>
-        <Button
-            android:id="@+id/Guardar"
-            android:text="Guardar Cambios"
-            android:textSize="10dp" >
-            
-        </Button>
-    </TableRow>
 </TableLayout>
 </ScrollView>
