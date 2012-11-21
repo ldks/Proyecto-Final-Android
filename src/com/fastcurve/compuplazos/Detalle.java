@@ -1,5 +1,7 @@
 package com.fastcurve.compuplazos;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +17,13 @@ import android.widget.TextView;
 public class Detalle extends Activity{
 
 	TextView text;
+	String marca;
+	String detalles;
+	double precio;
+	ArrayList<String> carroM;
+	ArrayList<String> carroP;
+	ArrayList<Computadora> lista;
+	Computadora[] lista2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -25,6 +34,10 @@ public class Detalle extends Activity{
 		String detalles = intent.getStringExtra("Detalles");
 		text = (TextView)findViewById(R.id.TextView04);
 		text.setText(detalles);
+		double precio=intent.getDoubleExtra("precio", 0);
+		carroM=intent.getStringArrayListExtra("lMarca");
+		carroP=intent.getStringArrayListExtra("lPrecio");
+		lista2 = (Computadora[]) intent.getParcelableArrayExtra("lista");
 	}
 	
 
@@ -39,5 +52,12 @@ public class Detalle extends Activity{
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+	
+	public void clickHandler(View v){
+		Intent nextActivity = new Intent(this, Carrito.class);
+		nextActivity.putExtra("Marca", marca);
+		nextActivity.putExtra("Precio", precio);
+		startActivity(nextActivity);
+	}
 
 }

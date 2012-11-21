@@ -1,5 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scroll"
+    android:id="@+id/carrito"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -37,6 +37,7 @@
         </EditText>
 
         <TextView
+            android:id="@+id/Cantidad"
             android:maxLength="8"
             android:maxWidth="10dp"
             android:scrollHorizontally="true"
@@ -46,6 +47,7 @@
         </TextView>
 
         <Button
+            android:id="@+id/Quitar"
             android:text="Quitar"
             android:textSize="10dp" >
             
@@ -55,11 +57,13 @@
     
     <TableRow>
         <Button
+            android:id="@+id/Continuar"
             android:text="Continuar Comprando"
             android:textSize="10dp" >
             
         </Button>
         <Button
+            android:id="@+id/Guardar"
             android:text="Guardar Cambios"
             android:textSize="10dp" >
             
