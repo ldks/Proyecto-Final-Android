@@ -22,6 +22,7 @@ public class Compra extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.compra);
 		Intent intent = getIntent();
+		pedido = intent.getExtras().getString("compus", "Compra vacía");
 		editTextEmail = (EditText)findViewById(R.id.editTextEmail);
 		editTextTel = (EditText)findViewById(R.id.editTextTel);
 		textViewError = (TextView)findViewById(R.id.textViewError);

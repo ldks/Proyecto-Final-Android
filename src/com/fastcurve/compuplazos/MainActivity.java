@@ -23,6 +23,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,7 +47,6 @@ public class MainActivity extends ListActivity {
 	// dialogo mostrado al actualizar la lista de computadoras
 	private ProgressDialog progressDialog;
 	
-
 	// Dialogo para confirmar cerrar la aplicación
 	private AtomicBoolean dialogoVisible = new AtomicBoolean();
 	
@@ -62,9 +62,22 @@ public class MainActivity extends ListActivity {
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressDialog.setCancelable(false);
 
-		// Se actualiza la lista al iniciar la aplicación
-		actualizarLista();
-		
+		// Se actualiza la lista solo al iniciar la aplicación
+		if (savedInstanceState == null) {
+			actualizarLista();
+			setListAdapter(new Adaptador(this,	lista));
+		}
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		// guarda la lista de computadoras
+		outState.putParcelableArrayList("computadoras", lista);
+	}
+	
+	@Override
+	public void onRestoreInstanceState(Bundle inState) {
+		lista = inState.getParcelableArrayList("computadoras");
 		setListAdapter(new Adaptador(this,	lista));
 	}
 
