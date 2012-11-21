@@ -17,9 +17,11 @@
         <ImageView
             android:id="@+id/ImageView04"
             android:adjustViewBounds="true"
-            android:maxHeight="150px"
-            android:maxWidth="150px"
+            android:contentDescription="@string/contentDescriptionImagenDetalles"
+            android:maxHeight="110dp"
+            android:maxWidth="110dp"
             android:src="@drawable/lap1" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +33,7 @@
                 android:id="@+id/marca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="@+id/marca"
                 android:textSize="20dp" />
 
@@ -38,6 +41,7 @@
                 android:id="@+id/modelo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="@+id/modelo"
                 android:textSize="20dp" />
 

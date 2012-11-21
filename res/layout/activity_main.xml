@@ -13,6 +13,7 @@
         android:layout_marginLeft="3dp"
         android:layout_marginRight="15dp"
         android:layout_weight="0.25"
+        android:contentDescription="@string/contentDescriptionCompu"
         android:src="@drawable/lap1" >
 
     </ImageView>
