@@ -38,10 +38,9 @@
     <TableRow android:baselineAligned="false" >
 
         <EditText
-            android:id="@+id/Cantidad"
-            android:maxLength="2">
-            
-        </EditText>
+            android:id="@+id/cantidad"
+            android:maxLength="2"
+            android:width="30px"/>
 
         <TextView
             android:id="@+id/CantidadT"
@@ -59,6 +58,12 @@
             android:textSize="10dp" >
             
         </Button>
+        <Button
+            android:id="@+id/Comprar"
+            android:text="Comprar"
+            android:textSize="10dp" >
+            
+        </Button>
 
     </TableRow>
     <TableRow>
@@ -70,7 +75,7 @@
         </Button>
         <Button
             android:id="@+id/Guardar"
-            android:text="Comprar"
+            android:text="Guardar"
             android:textSize="10dp" 
             android:onClick="comprar" >
             
