@@ -17,5 +17,6 @@
         	</activity>
             <activity android:name="Detalle"></activity>
             <activity android:name="Compra"></activity>
+            <activity android:name="AcercaDe"></activity>
         </application>
     </manifest>

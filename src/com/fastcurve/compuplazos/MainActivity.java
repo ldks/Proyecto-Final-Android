@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -28,6 +29,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,7 +55,6 @@ public class MainActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_main);
 		
 		// inicializamos el dialogo que se muestra al actualizar
 		progressDialog = new ProgressDialog(this);
@@ -65,7 +66,7 @@ public class MainActivity extends ListActivity {
 		// Se actualiza la lista solo al iniciar la aplicación
 		if (savedInstanceState == null) {
 			actualizarLista();
-			setListAdapter(new Adaptador(this,	lista));
+			setListAdapter((ListAdapter) new Adaptador(this,	lista));
 		}
 	}
 	
@@ -77,6 +78,7 @@ public class MainActivity extends ListActivity {
 	
 	@Override
 	public void onRestoreInstanceState(Bundle inState) {
+		// recupera la lista de computadoras
 		lista = inState.getParcelableArrayList("computadoras");
 		setListAdapter(new Adaptador(this,	lista));
 	}
@@ -109,25 +111,25 @@ public class MainActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Este switch sirve para ejecutar un metodo acorde a la opcion que se
 		// seleccionó
+		Intent nextActivity;
 		switch (item.getItemId()) {
 		case R.id.actualizarMenuItem:
 			this.actualizarLista();
 			break;
-		case R.id.principalMenuItem:
-			currentView = R.layout.activity_main;
-			setContentView(currentView);
-			break;
 		case R.id.empresaMenuItem:
-			currentView = R.layout.acercade_empresa;
-			setContentView(currentView);
+			nextActivity = new Intent(this, AcercaDe.class);
+			nextActivity.putExtra("layout", AcercaDe.ACERCA_DE_EMPRESA);
+			startActivity(nextActivity);
 			break;
 		case R.id.nosotrosMenuItem:
-			currentView = R.layout.acercade_nosotros;
-			setContentView(currentView);
+			nextActivity = new Intent(this, AcercaDe.class);
+			nextActivity.putExtra("layout", AcercaDe.ACERCA_DE_NOSOTROS);
+			startActivity(nextActivity);
 			break;
 		case R.id.aplicacionMenuItem:
-			currentView = R.layout.acercade_aplicacion;
-			setContentView(currentView);
+			nextActivity = new Intent(this, AcercaDe.class);
+			nextActivity.putExtra("layout", AcercaDe.ACERCA_DE_APLICACION);
+			startActivity(nextActivity);
 			break;
 		case R.id.salirMenuItem:
 			destroy();

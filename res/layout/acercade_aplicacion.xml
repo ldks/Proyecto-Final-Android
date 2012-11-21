@@ -11,7 +11,7 @@
         android:id="@+id/tableRow1"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
-
+
         <TextView
             android:id="@+id/objetivoTitleTextView"
             android:layout_weight="1"
@@ -35,5 +35,4 @@
  
     </TableRow>
     
- 
 </TableLayout>

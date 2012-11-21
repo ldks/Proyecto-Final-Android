@@ -46,7 +46,7 @@ public class Adaptador extends ArrayAdapter<Computadora> {
 		} else if (s.equals("Acer")) {
 			imageView.setImageResource(R.drawable.lap2);
 		} else {
-			imageView.setImageResource(R.drawable.lap2);
+			
 		}
  
 		return rowView;
