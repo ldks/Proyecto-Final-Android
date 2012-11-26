@@ -3,79 +3,79 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:shrinkColumns="*"
-    android:stretchColumns="*" >
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*" >
 
-    <!-- Row 1 with single column -->
-    <TableRow
-        android:gravity="center_horizontal">
+        <!-- Row 1 with single column -->
 
-        <ImageView
-            android:id="@+id/ImageView01"
-            android:adjustViewBounds="true"
-            android:maxHeight="150px"
-            android:maxWidth="150px"
-            android:src="@drawable/lap1" />
-        
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/texto1"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/TextView08"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/texto1"
-            android:textSize="15dp" />
-    </TableRow> 
-
-    <TableRow android:baselineAligned="false" >
+        <TableRow android:gravity="center_horizontal" >
 
-        <EditText
-            android:id="@+id/Cantidad"
-            android:maxLength="2">
-            
-        </EditText>
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:adjustViewBounds="true"
+                android:maxHeight="150px"
+                android:maxWidth="150px"
+                android:src="@drawable/lap1" />
 
-        <TextView
-            android:id="@+id/CantidadT"
-            android:maxLength="8"
-            android:maxWidth="10dp"
-            android:scrollHorizontally="true"
-            android:text="Cantidad"
-            android:width="10dp" >
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/texto1"
+                android:textSize="15dp" />
 
-        </TextView>
+            <TextView
+                android:id="@+id/TextView08"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/texto1"
+                android:textSize="15dp" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/Quitar"
-            android:text="Quitar"
-            android:textSize="10dp" >
-            
-        </Button>
+        <TableRow android:baselineAligned="false" >
 
-    </TableRow>
-    
-    <TableRow>
-        <Button
-            android:id="@+id/Continuar"
-            android:text="Continuar Comprando"
-            android:textSize="10dp" >
-            
-        </Button>
-        <Button
-            android:id="@+id/Guardar"
-            android:text="Comprar"
-            android:textSize="10dp" 
-            android:onClick="comprar" >
-            
-        </Button>
-    </TableRow>
-</TableLayout>
+            <EditText
+                android:id="@+id/Cantidad"
+                android:maxLength="2" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/CantidadT"
+                android:maxLength="8"
+                android:maxWidth="10dp"
+                android:scrollHorizontally="true"
+                android:text="Cantidad"
+                android:width="10dp" >
+            </TextView>
+
+            <Button
+                android:id="@+id/Quitar"
+                android:text="Quitar"
+                android:textSize="10dp" >
+            </Button>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/Continuar"
+                android:text="Continuar Comprando"
+                android:textSize="10dp" >
+            </Button>
+
+            <Button
+                android:id="@+id/Guardar"
+                android:onClick="comprar"
+                android:text="Comprar"
+                android:textSize="10dp" >
+            </Button>
+        </TableRow>
+
+
+    </TableLayout>
+
 </ScrollView>

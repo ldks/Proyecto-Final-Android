@@ -72,22 +72,17 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#f00" />
 
-    <View
-        android:id="@+id/viewFiller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
     <Button
         android:id="@+id/btnPedir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/strPedirCotizacion" />
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="@string/strPedirCotizacion"
+        android:textSize="20dp" />
 
 </TableLayout>

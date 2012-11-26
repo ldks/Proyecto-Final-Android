@@ -1,5 +1,6 @@
 package com.fastcurve.compuplazos;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 public class Detalle extends Activity{
 
+	private final DecimalFormat DF = new DecimalFormat("#.##");
 	private int pos;
 	private ArrayList<Computadora> lista = MainActivity.lista;
 	private Computadora computadora;
@@ -27,7 +29,7 @@ public class Detalle extends Activity{
 		this.computadora = lista.get(pos);
 		String marca = computadora.getMarca();
 		String modelo = computadora.getModelo();
-		double precio = computadora.getPrecio();
+		String precio = DF.format(computadora.getPrecio());
 		String detalles = computadora.getDetalles();
 		
 		TextView textViewMarca = (TextView) findViewById(R.id.marca);

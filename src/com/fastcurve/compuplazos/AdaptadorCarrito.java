@@ -34,8 +34,8 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 		TextView textView2 =(TextView) rowView.findViewById(R.id.TextView08);
 		EditText cantidad = (EditText)rowView.findViewById(R.id.Cantidad);
 		textView.setText("Marca: "+values.get(position).getMarca());
-		textView2.setText("Precio: "+values.get(position).getPrecio());
-		//textView2.setText("Precio: "+df.format(values2.get(position)));
+//		textView2.setText("Precio: "+values.get(position).getPrecio());
+		textView2.setText("Precio: "+df.format(values.get(position).getPrecio()));
 		
 		return rowView;
 	}
