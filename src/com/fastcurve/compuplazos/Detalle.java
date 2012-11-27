@@ -62,5 +62,7 @@ public class Detalle extends Activity{
 		Intent nextActivity = new Intent(this, Carrito.class);
 		startActivity(nextActivity);
 	}
-
+	public void onBackPressed() {
+		finish();
+	}
 }

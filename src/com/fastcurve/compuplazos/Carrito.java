@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class Carrito extends ListActivity{
 		
 		for (Computadora compu : MainActivity.lista) {
 			if (compu.getCantidad()>0) carrito.add(compu);
+			if (compu.getCantidad()==0) carrito.remove(compu);
 		}
 		setListAdapter(new AdaptadorCarrito(this,carrito));
 	}
@@ -29,6 +31,13 @@ public class Carrito extends ListActivity{
 		return super.onOptionsItemSelected(item);
 	}
 	
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+	
+
 	public void comprar(View v) {
 		Intent nextActivity = new Intent(this, Compra.class);
 		startActivity(nextActivity);
