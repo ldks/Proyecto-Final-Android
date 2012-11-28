@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class Adaptador extends ArrayAdapter<Computadora> {
 	private final Context context;
 	private final ArrayList<Computadora> values;
-	DecimalFormat df = new DecimalFormat("#.##");
+	DecimalFormat df = new DecimalFormat("$#,###.##");
  
 	public Adaptador(Context context, ArrayList<Computadora> lista) {
 		super(context, R.layout.activity_main, lista);

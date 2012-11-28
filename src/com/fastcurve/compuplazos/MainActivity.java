@@ -1,6 +1,7 @@
 package com.fastcurve.compuplazos;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -32,6 +33,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
+	
+	public static final DecimalFormat DF = new DecimalFormat("$#,###,###.##");
 	
 	/*
 	 * La variable currentView sirve de "singleton" para saber en que vista se
@@ -266,7 +269,7 @@ public class MainActivity extends ListActivity {
 				Log.e("JSON Error", e.getLocalizedMessage());
 				return;
 			}
-			Log.i("Actualizacion:: ", computadoras.toString());
+			Log.i("MainActivity", "Actualización exitosa");
 			System.out.println("Prueba de la lista: "+lista.get(0).getDetalles());
 			setListAdapter(new Adaptador(MainActivity.this,	lista));
 			

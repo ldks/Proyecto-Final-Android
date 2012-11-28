@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class Carrito extends ListActivity{
@@ -17,12 +16,20 @@ public class Carrito extends ListActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.carrito);
 		
 		for (Computadora compu : MainActivity.lista) {
 			if (compu.getCantidad()>0) carrito.add(compu);
 			if (compu.getCantidad()==0) carrito.remove(compu);
 		}
 		setListAdapter(new AdaptadorCarrito(this,carrito));
+		
+		TextView tvTotal = (TextView) this.findViewById(R.id.tvTotal);
+		double total = 0;
+		for (Computadora c : carrito) {
+			total += c.getPrecio()*c.getCantidad();
+		}
+		tvTotal.setText("Total: "+MainActivity.DF.format(total));
 	}
 	
 	@Override

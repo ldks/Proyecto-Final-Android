@@ -33,6 +33,8 @@
     <string name="contentDescriptionImagenDetalles">Imagen de la computadora seleccionada</string>
     <string name="contentDescriptionEmpty"></string>
     <string name="contentDescriptionCompu">Imagen de la computadora</string>
-    <string name="labelCantidad">Cantidad:</string>
+    <string name="labelCantidad">Cantidad: </string>
+    <string name="btnRegresar">Regresar</string>
+    <string name="btnComprar">Comprar</string>
 
 </resources>

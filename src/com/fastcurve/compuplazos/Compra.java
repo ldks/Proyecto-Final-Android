@@ -1,7 +1,6 @@
 package com.fastcurve.compuplazos;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.fastcurve.compuplazos.Mail;
 
 public class Compra extends Activity {
 
@@ -24,8 +21,8 @@ public class Compra extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.compra);
-		Intent intent = getIntent();
-		// pedido = intent.getExtras().getString("claves", "Compra vacía");
+//		Intent intent = getIntent();
+//		pedido = intent.getExtras().getString("claves", "Compra vacía");
 		pedido = "Compra vacia";
 		editTextEmail = (EditText) findViewById(R.id.editTextEmail);
 		editTextTel = (EditText) findViewById(R.id.editTextTel);

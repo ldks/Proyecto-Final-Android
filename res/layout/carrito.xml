@@ -1,80 +1,55 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-   <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/carrito_footer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:shrinkColumns="*"
-        android:stretchColumns="*" >
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:orientation="vertical" >
 
-        <!-- Row 1 with single column -->
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Total: " />
 
-        <TableRow android:gravity="center_horizontal" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-            <ImageView
-                android:id="@+id/ImageView01"
-                android:adjustViewBounds="true"
-                android:maxHeight="150px"
-                android:maxWidth="150px"
-                android:src="@drawable/lap1" />
-
-            <TextView
-                android:id="@+id/TextView01"
+            <Button
+                android:id="@+id/btnRegresar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/texto1"
-                android:textSize="15dp" />
+                android:text="@string/btnRegresar" />
 
-            <TextView
-                android:id="@+id/TextView08"
+            <Button
+                android:id="@+id/btnComprar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/texto1"
-                android:textSize="15dp" />
-        </TableRow>
+                android:text="@string/btnComprar" />
 
-        <TableRow android:baselineAligned="false" >
-
-            <EditText
-                android:id="@+id/cantidad"
-                android:maxLength="2" >
+        </LinearLayout>
 
-            </EditText>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/CantidadT"
-                android:maxLength="8"
-                android:maxWidth="10dp"
-                android:scrollHorizontally="true"
-                android:text="Cantidad"
-                android:width="10dp" >
-            </TextView>
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/carrito_footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
 
-            <Button
-                android:id="@+id/Quitar"
-                android:text="Quitar"
-                android:textSize="10dp" >
-            </Button>
-        </TableRow>
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/Continuar"
-                android:text="Continuar Comprando"
-                android:textSize="10dp" >
-            </Button>
-
-            <Button
-                android:id="@+id/Guardar"
-                android:onClick="comprar"
-                android:text="Comprar"
-                android:textSize="10dp" >
-            </Button>
-        </TableRow>
-
-
-    </TableLayout>
-</ScrollView>
+</RelativeLayout>
