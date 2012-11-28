@@ -38,22 +38,44 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 		EditText num1 = (EditText)rowView.findViewById(R.id.cantidad);
 		textView.setText("Marca: "+values.get(position).getMarca());
 		textView2.setText("Precio: "+df.format(values.get(position).getPrecio()));
-		num1.setText(""+MainActivity.lista.get(position).getCantidad());
+		num1.setText(""+values.get(position).getCantidad());
 		Button boton= (Button)rowView.findViewById(R.id.Guardar);
 		Button boton2= (Button)rowView.findViewById(R.id.Quitar);
+		Button boton3= (Button)rowView.findViewById(R.id.Continuar);
 		final int pos=position; 
 		final EditText num=num1;
 		boton.setOnClickListener( new OnClickListener(){
 			public void onClick(View v) {
 				String cant=num.getText().toString();
-				MainActivity.lista.get(pos).setCantidad(Integer.parseInt(cant));
+				for(int a=0; a<MainActivity.lista.size();a++){
+					if((values.get(pos).getId())==(MainActivity.lista.get(a).getId())){
+						MainActivity.lista.get(a).setCantidad(Integer.parseInt(cant));
+					}
+				}
+				Intent intent = new Intent(context, Carrito.class);
+				//intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				((Carrito)context).finish();
+				context.startActivity(intent);
 			}
 			
 		});
 		boton2.setOnClickListener( new OnClickListener(){
 			public void onClick(View v) {
-				String cant=num.getText().toString();
-				MainActivity.lista.get(pos).setCantidad(0);
+				for(int a=0; a<MainActivity.lista.size();a++){
+					if((values.get(pos).getId())==(MainActivity.lista.get(a).getId())){
+						MainActivity.lista.get(a).setCantidad(0);
+					}
+				}
+				Intent intent = new Intent(context, Carrito.class);
+				//intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				((Carrito)context).finish();
+				context.startActivity(intent);
+			}
+			
+		});
+		boton3.setOnClickListener( new OnClickListener(){
+			public void onClick(View v) {
+				((Carrito)context).finish();
 			}
 			
 		});		

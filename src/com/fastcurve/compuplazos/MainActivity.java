@@ -135,6 +135,9 @@ public class MainActivity extends ListActivity {
 		case R.id.salirMenuItem:
 			destroy();
 			return true;
+		case R.id.carrito:
+			nextActivity = new Intent(this, Carrito.class);
+			startActivity(nextActivity);
 		default:
 			return super.onOptionsItemSelected(item);
 		}

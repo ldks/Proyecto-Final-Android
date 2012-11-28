@@ -39,7 +39,8 @@
 
             <EditText
                 android:id="@+id/cantidad"
-                android:maxLength="2" >
+                android:maxLength="2"
+                android:inputType="number" >
 
             </EditText>
 
@@ -69,8 +70,7 @@
 
             <Button
                 android:id="@+id/Guardar"
-                android:onClick="comprar"
-                android:text="Comprar"
+                android:text="Guardar"
                 android:textSize="10dp" >
             </Button>
         </TableRow>

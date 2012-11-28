@@ -20,11 +20,16 @@ public class Carrito extends ListActivity{
 		
 		for (Computadora compu : MainActivity.lista) {
 			if (compu.getCantidad()>0) carrito.add(compu);
-			if (compu.getCantidad()==0) carrito.remove(compu);
 		}
+		/*for(int a=0;a<carrito.size();a++){
+			if(carrito.get(a).getCantidad()==0){
+				carrito.remove(a);
+			}
+		}
+		*/
 		setListAdapter(new AdaptadorCarrito(this,carrito));
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
