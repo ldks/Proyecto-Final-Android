@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/actualizarMenuItem" android:title="Actualizar"></item>
-    <item android:id="@+id/acercadeMenuItem"
+    <item android:id="@+id/carrito" android:title="Ir al Carrito"></item><item android:id="@+id/acercadeMenuItem"
         android:title="Acerca de ...">
         <menu>
             <item android:id="@+id/empresaMenuItem" android:title="Empresa" />
@@ -9,6 +9,7 @@
         </menu>
     </item>
     <item android:id="@+id/salirMenuItem" android:title="Salir"></item>
+    
     
     
 </menu>

@@ -45,7 +45,8 @@ public class Adaptador extends ArrayAdapter<Computadora> {
             	int cantidad = MainActivity.lista.get(pos).getCantidad()+1;
                 MainActivity.lista.get(pos).setCantidad(cantidad);
                 Intent nextActivity = new Intent(context, Carrito.class);
-        		context.startActivity(nextActivity);
+        		
+                context.startActivity(nextActivity);
             }
         });
 		// Change icon based on name
