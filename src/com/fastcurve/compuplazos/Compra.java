@@ -1,6 +1,7 @@
 package com.fastcurve.compuplazos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,15 +16,14 @@ public class Compra extends Activity {
 	private EditText editTextTel;
 	private TextView textViewError;
 	private Button btnPedir;
-	private String pedido;
+	private String claves;
 	private boolean mandando = false;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.compra);
-//		Intent intent = getIntent();
-//		pedido = intent.getExtras().getString("claves", "Compra vacía");
-		pedido = "Compra vacia";
+		Intent intent = getIntent();
+		claves = intent.getExtras().getString("claves");
 		editTextEmail = (EditText) findViewById(R.id.editTextEmail);
 		editTextTel = (EditText) findViewById(R.id.editTextTel);
 		textViewError = (TextView) findViewById(R.id.textViewError);
@@ -33,6 +33,7 @@ public class Compra extends Activity {
 				pedirCotizacion();
 			}
 		});
+		Log.i("Compra", claves);
 	}
 
 	/** Manda una cotización a Compuplazos por mail */
@@ -55,7 +56,7 @@ public class Compra extends Activity {
 				String body = "Un cliente con esta información:\n" + "	Email: "
 						+ email + "\n" + "	Teléfono: " + tel + "\n"
 						+ "Pidió a traves de la aplicación en android:\n"
-						+ pedido;
+						+ claves;
 
 				mail.setTo(new String[] { "islarrab@gmail.com" });
 				mail.setFrom("android.compuplazos@gmail.com");

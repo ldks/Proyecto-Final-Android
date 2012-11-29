@@ -46,7 +46,14 @@ public class Carrito extends ListActivity{
 	
 
 	public void comprar(View v) {
+		String claves = "";
+		for (Computadora c : MainActivity.lista) {
+			if (c.getCantidad() > 0 ) {
+				claves += c.getClave()+" x"+c.getCantidad()+"\n";
+			}
+		}
 		Intent nextActivity = new Intent(this, Compra.class);
+		nextActivity.putExtra("claves", claves);
 		startActivity(nextActivity);
 	}
 	
