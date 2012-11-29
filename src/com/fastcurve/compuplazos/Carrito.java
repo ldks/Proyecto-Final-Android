@@ -29,12 +29,7 @@ public class Carrito extends ListActivity{
 		*/
 		setListAdapter(new AdaptadorCarrito(this,carrito));
 		
-		TextView tvTotal = (TextView) this.findViewById(R.id.tvTotal);
-		double total = 0;
-		for (Computadora c : carrito) {
-			total += c.getPrecio()*c.getCantidad();
-		}
-		tvTotal.setText("Total: "+MainActivity.DF.format(total));
+		calcularTotal();
 	}
 
 	@Override
@@ -54,5 +49,13 @@ public class Carrito extends ListActivity{
 		Intent nextActivity = new Intent(this, Compra.class);
 		startActivity(nextActivity);
 	}
-
+	
+	private void calcularTotal() {
+		TextView tvTotal = (TextView) this.findViewById(R.id.tvTotal);
+		double total = 0;
+		for (Computadora c : carrito) {
+			total += c.getPrecio()*c.getCantidad();
+		}
+		tvTotal.setText("Total: "+MainActivity.DF.format(total));
+	}
 }
