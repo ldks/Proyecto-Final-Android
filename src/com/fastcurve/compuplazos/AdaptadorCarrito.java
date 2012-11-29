@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,6 +48,39 @@ public class AdaptadorCarrito extends ArrayAdapter<Computadora> {
 		etCantidad.setText("" + values.get(position).getCantidad());
 
 		ImageButton btnQuitar = (ImageButton) rowView.findViewById(R.id.btnQuitar);
+		
+		etCantidad.addTextChangedListener(new TextWatcher(){
+
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				String cant = etCantidad.getText().toString();
+				for (int a = 0; a < MainActivity.lista.size(); a++) {
+					if ((values.get(position).getId()) == (MainActivity.lista.get(a)
+							.getId())) {
+						MainActivity.lista.get(a).setCantidad(
+								Integer.parseInt(cant));
+					}
+				}
+				Intent intent = new Intent(context, Carrito.class);
+				// intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				((Carrito) context).finish();
+				context.startActivity(intent);
+				
+			}
+
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		btnQuitar.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
